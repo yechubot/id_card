@@ -70,7 +70,7 @@ class _NinjaCardState extends State<NinjaCard> {
             ),
             SizedBox(height:30.0), //empty box
             Text(
-              '$ninjaLevel',
+              'ninja level',
               style: TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -78,7 +78,7 @@ class _NinjaCardState extends State<NinjaCard> {
             ),
             SizedBox(height:10.0), //empty box
             Text(
-              '8',
+              '$ninjaLevel',
               style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
