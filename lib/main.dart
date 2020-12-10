@@ -5,8 +5,17 @@ void main() =>runApp(MaterialApp(
   home: NinjaCard(),
 
 ));
+//stateful object --> 시간이 지나면서 데이터 변경할 수 있음.
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
+  @override
+  _NinjaCardState createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+
+  int ninjaLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +25,16 @@ class NinjaCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        //update ninjaLevel when clicked
+        onPressed: (){
+          setState((){//when it's called trigger build function!! -- only way
+            ninjaLevel+= 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body:Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 40.0, 0.0),
@@ -51,7 +70,7 @@ class NinjaCard extends StatelessWidget {
             ),
             SizedBox(height:30.0), //empty box
             Text(
-              'CURRENT NINJA LEVEL',
+              '$ninjaLevel',
               style: TextStyle(
                 color: Colors.grey,
                 letterSpacing: 2.0,
@@ -91,3 +110,4 @@ class NinjaCard extends StatelessWidget {
     );
   }
 }
+
